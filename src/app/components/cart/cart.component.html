@@ -1,0 +1,32 @@
+<div class="cart-item">
+  <div *ngFor="let product of products" class="cart-item-details">
+    <img src="{{product.product.url}}" alt="{{product.product.name}}" class="product-image" routerLink="product">
+    <span>{{product.product.name}}</span>
+    <span>{{product.product.price}}</span>
+    <input type="number" min="1" max="10" value="1" class="select-input" [(ngModel)]="product.quantity" >
+  </div>
+  <div>Total Price: {{grandTotal | currency}}</div>
+
+  <div class="cart-container">
+  <form class="form-margin" #cart="ngForm" (ngSubmit)="finish()">
+    <div class="form-group">
+      <label for="name">Full Name</label> <br>
+      <input #name="ngModel" type="text" id="name" name="FullName" placeholder="(min 3 character)" minlength="3"  required ngModel> <br>
+      <div *ngIf="name.touched && name.invalid" class="alert alert-danger">Invalid</div>
+    </div>
+    <div class="form-group">
+      <label for="address">Address</label> <br>
+      <input #address="ngModel" type="text" id="address" placeholder="(min 6 character)" minlength="6" required ngModel name="Address"> <br>
+      <div *ngIf="address.touched && address.invalid" class="alert alert-danger">Invalid</div>
+    </div>
+    <div class="form-group">
+      <label for="cardNumber">Credit Card Number</label> <br>
+      <input #credit="ngModel" type="text" id="cardNumber" placeholder="(16-digit)" minlength="16" required ngModel name="Credit Card"> <br>
+      <div *ngIf="credit.touched && credit.invalid" class="alert alert-danger">Invalid</div>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+  </div>
+
+</div>
+

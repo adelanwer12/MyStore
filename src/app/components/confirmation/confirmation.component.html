@@ -1,0 +1,11 @@
+<div class="confirmation-container" *ngIf="message" >
+  <div class="confirmation-header">
+    {{message.FullName}}
+  </div>
+  <div class="confirmation-item">
+    Your Order Will Chipped To {{message.Address}}
+  </div>
+  <div class="confirmation-items">
+    You Paid {{message.grandTotal}}
+  </div>
+</div>

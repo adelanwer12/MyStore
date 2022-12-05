@@ -1,0 +1,10 @@
+<div class="detail-container " *ngIf="product">
+  <div class="detail-item">
+  <img src="{{product.url}}" alt="{{product.name}}" class="product-image" >
+  <p>{{product.name}}</p>
+  <p>{{product.price}}</p>
+    <input type="number" min="1" max="10" value="1" class="select-input" [(ngModel)]="count">
+    <button type="submit" (click)="addToCart(product)">Add to Cart</button>
+    <a routerLink="/products">Return to Product List</a>
+  </div>
+</div>
